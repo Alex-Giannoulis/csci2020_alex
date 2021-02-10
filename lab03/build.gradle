@@ -1,0 +1,39 @@
+buildscript{
+	repositories{
+		flatDir dirs: 'C:\\csci2020_alex\\proguard6.2.2\\lib'
+	}
+	dependencies{
+		classpath: ':proguard:'
+
+	}
+}
+
+
+
+plugins{
+	id 'java'
+	id 'application'
+}
+
+
+
+version = '1.0'
+mainClassName = 'csci2020u.lab03.CSVDemo'
+
+task (minify, dependsOn: 'jar', type: proguard.gradle.ProGuardTask) {
+    configuration 'proguard.cfg'
+
+    injars'build/libs/lab03-1.0.jar'
+    outjars'build/libs/lab03-1.0.min.jar'
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.apache.commons:commons-csv:1.8'
+}
+
+

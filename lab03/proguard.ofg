@@ -1,0 +1,9 @@
+-libraryjars <java.home>/lib/rt.jar
+-libraryjars <java.home>/jmods/java.base.jmods(!**.jar;!module-info.class) 
+
+
+
+-keep public class csci2020u.lab03.CSVDemo {
+    public static void main(java.lang.String[]):
+}
+-dontwarn
